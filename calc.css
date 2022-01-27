@@ -1,0 +1,153 @@
+:root {
+  --main_bg: #e8e8e8;
+  --operator_bg: #f0f0f0;
+  --operand_bg: white;
+}
+*{
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+.container{
+  display: flex;
+  justify-content: center;
+}
+.outer_body{
+  justify-content: center;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main_bg);
+  padding: 5px;
+  font-size: 14px;
+  margin-top: 15px;
+  box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.5);
+}
+.display{
+  margin-bottom: 15px;
+}
+.display input{
+  border: none;
+  width: 100%;
+  font-size: 35px;
+  font-weight: 500px;
+  text-align: right;
+  background-color: var(--main_bg);
+}
+button:active{
+  transform: translateY(4px);
+}
+button{
+  transition-duration: 0.3s;
+}
+/* Deg & FE*/
+.top-row{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.top-row button{
+  padding: 7px 12px;
+  width: 19.5%;
+  border: none;
+  margin: 1px 1.5px 1px 0px;
+  justify-content: center;
+  background-color: var(--main_bg);
+}
+/* Memory Functions*/
+.memory-func{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:1px 0px;
+}
+.memory-func button{
+  width: 19.5%;
+  padding: 7px 12px;
+  border: none;
+  background-color: var(--main_bg);
+}
+/* Dropdown */
+.selection{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.selection button{
+  padding: 7px 12px;
+  border: none;
+  margin: 1px 1.6px 1px 0px;
+  background-color: var(--main_bg);
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--operator_bg);
+  min-width: 190px;
+  box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content button { 
+  padding: 7px 12px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content .function, .trigo{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.dropdown-content button:hover {
+  background-color: grey;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background-color: grey;
+}
+@media (max-width: 350px) { 
+  .func-drop{
+    right: 0;
+  }
+}
+/* function-container  */
+.func-container {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  background-color: var(--main_bg);
+}
+.func-container button{ 
+  padding: 7px 12px;
+  margin:1px;
+  border: none;
+  background-color: var(--operator_bg);
+}
+.func-container .operand{
+  background-color: var(--operand_bg);
+  font-size: 17px;
+  font-weight: bold;
+}
+.func-container .operand:hover{
+  background-color: lightgrey;
+}
+.func-container .equal{
+  background-color: rgb(154, 194, 221);
+}
+.func-container .equal:hover{
+  background-color: rgb(98, 165, 209);
+  font-weight: bolder;
+}
+.dropbtn { 
+  padding: 7px 12px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+button:hover{
+  background-color: grey;
+}
