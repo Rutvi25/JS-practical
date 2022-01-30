@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title -->
   <title>scientific-calculator</title>
+  <!-- Favicon -->
   <link rel="shortcut icon" href="https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-calculator-elearning-and-education-justicon-lineal-color-justicon.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./calc.css">
@@ -13,20 +15,20 @@
 </head>
 <body>
   <div class="container">
-    <div class="outer_body">
+    <div class="outer_body" name="calc">
       <!-- display -->
       <div class="display">
-        <input type="text" placeholder="0">
+        <input type="text" maxlength="15" placeholder="0" name="screen" id="screen">
       </div>
       <!-- Deg & E-F -->
       <div class="top-row">
-        <button id="deg" onclick="deg()" class="top-row">DEG</button>
-        <button class="top-row">E-F</button>
+        <button id="deg" class="top-row">DEG</button>
+        <button id="ef" class="top-row">F-E</button>
       </div>
-      <!-- Inner Functions -->
+      <!-- Memory Functions -->
       <div class="memory-func">
-        <button class="button">MC</button>
-        <button>MR</button>
+        <button id="MC" disabled>MC</button>
+        <button id="MR" disabled>MR</button>
         <button>M+</button>
         <button>M-</button>
         <button>MS</button>
@@ -34,12 +36,12 @@
       <!-- Dropdown -->
       <div class="selection">
         <div class="dropdown">
-          <button class="dropbtn">
+          <div class="drop-btn">
             <span>
               <img src="./trigonometry1.png" alt="trigo" width="17px">
             </span> Trignomerty 
             <i class="fa fa-angle-down"></i>
-          </button>
+          </div>
           <div class="dropdown-content"> 
             <div class="trigo">
               <button id="second" onclick="trigo_second()">2<sup>nd</sup></button>
@@ -52,12 +54,12 @@
           </div>
         </div>
         <div class="dropdown">
-          <button>
+          <div class="drop-btn">
             <span>
               <img src="./function.png" alt="function" width="17px">
             </span> Function 
             <i class="fa fa-angle-down"></i>
-          </button>
+          </div>
           <div class="dropdown-content func-drop">
             <div class="function">
               <button id="func1">floor</button>
@@ -71,15 +73,13 @@
       <div class="func-container">
         <!-- row1 -->
         <button id="2nd" onclick="change_func()">2<sup>nd</sup></button>
-        <button>&pi;</button>
+        <button value="3.14">&pi;</button>
         <button>e</button>
         <button>C</button>
-        <button>
-          <i class="material-icons" style="font-size:15px">backspace</i>
-        </button>
+        <button>⌫</button>
         <!-- row2 -->
         <button id="square">x<sup>2</sup></button>
-        <button>1/x</button>
+        <button><sup>1</sup>/x</button>
         <button>|x|</button>
         <button>exp</button>
         <button>mod</button>
@@ -109,7 +109,7 @@
         <button>+</button>
         <!-- row7 -->
         <button id="ln">ln</button>
-        <button class="operand"><sup>+</sup>/-</button>
+        <button class="operand">&#xb1;</button>
         <button class="operand">0</button>
         <button class="operand">.</button>
         <button class="equal">=</button>
