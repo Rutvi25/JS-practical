@@ -11,7 +11,7 @@ function change_func(){
     document.getElementById("root").innerHTML = "&#8731;x";
     document.getElementById("power").innerHTML = "<sup>y</sup>&radic;x";
     document.getElementById("pow10").innerHTML = "2<sup>x</sup>";
-    document.getElementById("log").innerHTML = "log<sub>y</sub>x";
+    document.getElementById("log").innerHTML = "log<sub>2</sub>x";
     document.getElementById("ln").innerHTML = "e<sup>x</sup>";
     change_flag = !change_flag;
   }
@@ -103,10 +103,10 @@ function evaluate(expression){
     {
       continue;
     }
-    if (expr[i] >= '0' && expr[i] <= '9' || expr[i] == '.')
+    if (expr[i] >= '0' && expr[i] <= '9' || expr[i] == '.' || expr[i] == '-')
     {
       let num = "";
-      while (i < expr.length && expr[i] >= '0' && expr[i] <= '9' || expr[i] == '.')
+      while (i < expr.length && expr[i] >= '0' && expr[i] <= '9' || expr[i] == '.' || expr[i] == '-')
       {
         num = num + expr[i++];
       }
@@ -114,83 +114,86 @@ function evaluate(expression){
       i--;
     }
     else if (expr[i] == '(')
-    {
-      operator.push(expr[i]);
+    {     
+      operator.push(expr[i]);     
     }
     else if (expr[i] == ')')
     {
+      if(expr[i-2] == '-'){
+        operand.push(expr[i-1]*-1);
+      }
       while (operator[operator.length - 1] != '('){
         operand.push(calculate(operator.pop(), operand.pop(), operand.pop()));
       }
       operator.pop();
     }
-    else if (expr[i] == '+' || expr[i] == '-' || expr[i] == '×' || expr[i] == '÷' || expr [i] == '^' || expr[i] == "%" || expr[i] == "√")
+    else if (expr[i] == '+' || expr[i] == '–' || expr[i] == '×' || expr[i] == '÷' || expr [i] == '^' || expr[i] == "%" || expr[i] == "√")
     {
       while (operator.length > 0 && hasPrecedence(expr[i], operator[operator.length - 1]))
       {
         operand.push(calculate(operator.pop(), operand.pop(), operand.pop()));
       }
-      operator.push(expr[i]);
+      operator.push(expr[i]);   
 		}
 	}
+  console.log(operator)
+  console.log(operand)
   while (operator.length > 0)
   {
     operand.push(calculate(operator.pop(), operand.pop(), operand.pop()));
   }
-  return operand.pop();    //result
+  return operand.pop();    //result 
 }
-	// Returns true if 'op2' has
-	// higher or same precedence as 'op1',
-	// otherwise returns false.
-	function hasPrecedence(operator1, operator2)
-	{
-		if (operator2 == "(" || operator2 == ")")
-		{
-			return false;
-		}  
-    if ((operator1 == "^" || operator1 == "√") && (operator2 == "+" || operator2 == "-"))
-		{
-			return false;
-		}
-    if ((operator1 == "^" || operator1 == "√") && (operator2 == "×" || operator2 == "÷" || operator2 == "%"))
-		{
-			return false;
-		}
-		if ((operator1 == "×" || operator1 == "÷" || operator2 == "%") && (operator2 == "+" || operator2 == "-"))
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-	}
-	function calculate(operator, b, a)
-	{
-		switch (operator){
-      case "^":
-        return a ** b;
-      case "√":
-        return b ** (1/a)
-      case "%":
-        return a%b;
-      case "+":
-        return a + b;
-      case "-":
-        return a - b;
-      case "×":
-        return a * b;
-      case "÷":
-        if (b == 0)
-        {
-          screen.value = "infinity";
-        }
-        return parseFloat(a / b);
+function hasPrecedence(operator1, operator2)
+{
+  if (operator2 == "(" || operator2 == ")" || operator2 == "-")
+  {
+    return false;
+  }  
+  if ((operator1 == "^" || operator1 == "√") && (operator2 == "+" || operator2 == "–"))
+  {
+    return false;
+  }
+  if ((operator1 == "^" || operator1 == "√" || operator1 == "÷") && (operator2 == "×" || operator2 == "%"))
+  {
+    return false;
+  }
+  if ((operator1 == "×" || operator1 == "÷" || operator1 == "%") && (operator2 == "+" || operator2 == "–"))
+  {
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+function calculate(operator, b, a)
+{
+  switch (operator){
+    case "^":
+      return a ** b;
+    case "√":
+      return b ** (1/a)
+    case "%":
+      return a%b;
+    case "+":
+      return a + b;
+    case "–":
+      return a - b;
+    case "×":
+      return a * b;
+    case "÷":
+      if (b == 0)
+      {
+        screen.value = "infinity";
       }
-      return 0;
-	}
+      return parseFloat(a / b);
+    }
+    return 0;
+}
 // Functionality
 let screen = document.getElementById('screen');
+let history = document.getElementById('history');
 let buttons = Array.from(document.getElementsByTagName('button'));
 var memory = 0;
 buttons.map(button => {
@@ -198,23 +201,34 @@ buttons.map(button => {
     switch(e.target.innerText){
       case "C":
         screen.value = "";
+        history.value = "";
         break;
       case "π":
         screen.value += Math.PI;   
-        screen.value = screen.value.slice(0,9);   
+        screen.value = screen.value;   
         break;
       case "e":
         screen.value += Math.E;
-        screen.value = screen.value.slice(0,9);       
+        screen.value = screen.value;       
         break;
-      case "mod":
-        screen.value += "%";
-        break;
-      case "±":
-        screen.value *= -1;
+      case "mod":    
+        history.value += screen.value + "%";
+        screen.value = ""
         break;
       case "⌫":
         screen.value = screen.value.slice(0, -1);
+        break;
+      case "+":  
+      case "–":  
+      case "÷":
+      case "×":
+      case "(":
+      case ")":
+        history.value += screen.value + e.target.innerText;
+        screen.value = "";
+        break;
+      case "±":
+        screen.value *= -1;
         break;
       case "n!":
         if (screen.value > 0){
@@ -240,10 +254,10 @@ buttons.map(button => {
           screen.value = 1/screen.value;
         break;
       case "√x":
-        screen.value += "2√";
+        screen.value = Math.sqrt(screen.value);
         break;
       case "∛x":
-        screen.value += "3√";
+        screen.value = Math.cbrt(screen.value);
         break;
       case "y√x":
         screen.value += "√"
@@ -257,6 +271,119 @@ buttons.map(button => {
       case "round":
         screen.value = Math.round(screen.value);
         break;
+      case "10x":
+        screen.value = 10 ** screen.value;
+        break;
+      case "2x":
+        screen.value = 2 ** screen.value;
+        break;
+      case "ex":
+        screen.value = Math.E ** screen.value;
+        break;
+      //Trigonometric function
+      case "sin":
+        if (deg_flag){
+          screen.value = Math.sin(screen.value*Math.PI/180);
+        }
+        else{
+          screen.value = Math.sin(screen.value);
+        }
+        break;
+      case "cos":
+        if (deg_flag){
+          screen.value = Math.cos(screen.value*Math.PI/180);
+        }
+        else{
+          screen.value = Math.cos(screen.value);
+        }
+        break;
+      case "tan":
+        if (deg_flag){
+          screen.value = Math.tan(screen.value*Math.PI/180);
+        }
+        else{
+          screen.value = Math.tan(screen.value);
+        }
+        break;
+      case "sin-1":
+        if (deg_flag){
+          screen.value = Math.asin(screen.value);
+          screen.value = screen.value*180/Math.PI;
+        }
+        else{
+          screen.value = Math.asin(screen.value);
+        }
+        break;
+      case "cos-1":
+        if (deg_flag){
+          screen.value = Math.acos(screen.value);
+          screen.value = screen.value*180/Math.PI;
+        }
+        else{
+          screen.value = Math.acos(screen.value);
+        }
+        break;
+      case "tan-1":
+        if (deg_flag){
+          screen.value = Math.atan(screen.value);
+          screen.value = screen.value*180/Math.PI;
+        }
+        else{
+          screen.value = Math.atan(screen.value);
+        }
+        break;
+      case "sinh":
+        if (deg_flag){
+          screen.value = Math.sinh(screen.value*Math.PI/180);
+        }
+        else{
+          screen.value = Math.sinh(screen.value);
+        }
+        break;
+      case "cosh":
+        if (deg_flag){
+          screen.value = Math.cosh(screen.value*Math.PI/180);
+        }
+        else{
+          screen.value = Math.cosh(screen.value);
+        }
+        break;
+      case "tanh":
+        if (deg_flag){
+          screen.value = Math.tanh(screen.value*Math.PI/180);
+        }
+        else{
+          screen.value = Math.tanh(screen.value);
+        }
+        break;
+      case "sin-1h":
+        if (deg_flag){
+          screen.value = Math.asinh(screen.value);
+          screen.value = screen.value*180/Math.PI;
+        }
+        else{
+          screen.value = Math.asinh(screen.value);
+        }
+        break;
+      case "cos-1h":
+        if (deg_flag){
+          screen.value = Math.acosh(screen.value);
+          screen.value = screen.value*180/Math.PI;
+        }
+        else{
+          screen.value = Math.acosh(screen.value);
+        }
+        break;
+      case "tan-1h":
+        if (deg_flag){
+          screen.value = Math.atanh(screen.value);
+          screen.value = screen.value*180/Math.PI;
+        }
+        else{
+          screen.value = Math.atanh(screen.value);
+        }
+        break;
+      // Memory Functions
       case "M+":
         document.getElementById("MR").disabled = false;
         document.getElementById("MC").disabled = false; 
@@ -282,6 +409,7 @@ buttons.map(button => {
         document.getElementById("MR").disabled = true;
         document.getElementById("MC").disabled = true;      
         break;
+      //power 
       case "x3":
         screen.value = screen.value ** 3;    
         break;
@@ -289,20 +417,36 @@ buttons.map(button => {
         screen.value = screen.value ** 2;
         break;
       case "xy":
-        screen.value += "^";
+        history.value += screen.value + "^";
+        screen.value = ""
         break;
+      //logarithm
       case "exp":
         var num = evaluate(screen.value);	
         screen.value = num.toExponential(10)
-        break;	    
+        break;	
+      case "log":
+        screen.value = Math.log10(screen.value)  
+        break;
+      case "ln":
+        screen.value = Math.log10(screen.value)/Math.log10(Math.PI);
+        break;  
+      case "log2x":
+        screen.value = Math.log2(screen.value);
+        break;
+      // evaluate
       case "=":
+        history.value += screen.value;
+        screen.value = "";
         if(ef_flag){
-          screen.value = evaluate(screen.value);
+          screen.value = evaluate(history.value);
+          history.value = "";        
         }
         else{
           screen.value = evaluate(screen.value).toExponential(10);
+          history.value = ""; 
         }
-        break;
+       break;
       case "hyp":
       case "2nd":
       case "nd":
