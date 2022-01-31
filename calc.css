@@ -42,6 +42,7 @@
   text-align: right;
   margin-bottom: 5px;
   background-color: var(--main_bg);
+  color: rgba(44, 43, 43, 0.981);
 }
 @media (max-width: 370px) { 
   .display input{
