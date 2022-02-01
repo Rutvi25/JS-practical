@@ -222,12 +222,10 @@ buttons.map(button => {
         history.value = "";
         break;
       case "π":
-        screen.value += Math.PI;
-        screen.value = screen.value;
+        screen.value = Math.PI;
         break;
       case "e":
-        screen.value += Math.E;
-        screen.value = screen.value;
+        screen.value = Math.E;
         break;
       case "⌫":
         screen.value = screen.value.slice(0, -1);
