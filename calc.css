@@ -1,7 +1,10 @@
 :root {
   --main_bg: #e8e8e8;
   --operator_bg: #f0f0f0;
-  --operand_bg: white;
+  --operand_bg: #ffffff;
+  --operator_hover: #808080;
+  --operand_hover: #d3d3d3;
+  --function_change: #9ac2dd;
 }
 * {
   font-family: Arial, Helvetica, sans-serif;
@@ -110,9 +113,10 @@ button {
   border: none;
   margin: 1px 1.6px 1px 0px;
   background-color: var(--main_bg);
+  cursor: pointer;
 }
 .drop-btn:hover {
-  background-color: grey;
+  background-color: var(--operator_hover);
 }
 .dropdown-content {
   display: none;
@@ -133,7 +137,7 @@ button {
   grid-template-columns: auto auto auto;
 }
 .dropdown-content button:hover {
-  background-color: grey;
+  background-color: var(--operator_hover);
 }
 .dropdown:hover .dropdown-content {
   display: block;
@@ -151,6 +155,7 @@ button {
 }
 .func-container button {
   padding: 7px 12px;
+  height: 40px;
   margin: 1px;
   border: none;
   background-color: var(--operator_bg);
@@ -161,10 +166,11 @@ button {
   font-weight: bold;
 }
 .func-container .operand:hover {
-  background-color: lightgrey;
+  background-color: var(--operand_hover);
 }
 .func-container .operator {
-  font-size: 15px;
+  font-size: 20px;
+  padding: 5px 12px 5px 12px;
 }
 .func-container .equal {
   background-color: rgb(154, 194, 221);
@@ -175,5 +181,5 @@ button {
 }
 /* button hover style*/
 button:hover {
-  background-color: grey;
+  background-color: var(--operator_hover);
 }

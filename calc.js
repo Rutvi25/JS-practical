@@ -6,7 +6,7 @@ let ef_flag = true;
 // Col-1 function change on pressing the "2nd" button
 function change_func() {
   if (change_flag) {
-    document.getElementById("2nd").style.backgroundColor = "rgb(154, 194, 221)";
+    document.getElementById("2nd").style.backgroundColor = "var(--function_change)";
     document.getElementById("square").innerHTML = "&#119909;<sup>3</sup>";
     document.getElementById("root").innerHTML = "&#8731;&#119909;";
     document.getElementById("power").innerHTML = "<sup>y</sup>&radic;&#119909;";
@@ -28,7 +28,7 @@ function change_func() {
 // For 2nd button under trigonomatry functions
 function trigo_second() {
   if (trigo_flag) {
-    document.getElementById("second").style.backgroundColor = "rgb(154, 194, 221)";
+    document.getElementById("second").style.backgroundColor = "var(--function_change)";
     if (hyp_flag) {
       document.getElementById("trigo1").innerHTML = "sin<sup>-1</sup>";
       document.getElementById("trigo2").innerHTML = "cos<sup>-1</sup>";
@@ -58,7 +58,7 @@ function trigo_second() {
 // For hyp button under trigonomatry functions
 function trigo_hyp() {
   if (hyp_flag) {
-    document.getElementById("hyp").style.backgroundColor = "rgb(154, 194, 221)";
+    document.getElementById("hyp").style.backgroundColor = "var(--function_change)";
     if (trigo_flag) {
       document.getElementById("trigo1").innerHTML = "sinh";
       document.getElementById("trigo2").innerHTML = "cosh";
@@ -85,7 +85,7 @@ function trigo_hyp() {
     }
   }
 }
-// Function for evaluation:
+// Function for evaluation of mathematical expression:
 function evaluate(expression) {
   let expr = expression.split("");  
   let operand = [];     // operand stack
@@ -141,7 +141,7 @@ function evaluate(expression) {
   while (operator.length > 0) {
     operand.push(calculate(operator.pop(), operand.pop(), operand.pop()));
   }
-  return operand.pop();    // result of Evaluate function
+  return operand.pop();    // Result of "evaluate" function
 }
 // Function to check precedence of operators.
 /* It will return true only if the operator 2 has 
@@ -201,7 +201,7 @@ function calculate(operator, b, a)
     }
     return 0;
 }
-// Function for finding nth root
+// Function for finding nth root.
 function nthRoot(redicant, index) {
   if (redicant < 0) {
     if (index % 2 === 1) return -nthRoot(-redicant, index)
@@ -471,7 +471,7 @@ buttons.map(button => {
       // Choice for the mode of calc
       case "F-E":
         if (ef_flag) {
-          document.getElementById("ef").style.background = "rgb(154, 194, 221)";
+          document.getElementById("ef").style.background = "var(--function_change)";
           ef_flag = !ef_flag;
         } else {
           document.getElementById("ef").style.background = "var(--main_bg)";
