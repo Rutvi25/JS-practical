@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Title -->
-    <title>scientific-calculator</title>
+    <title>Scientific-Calculator</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="./calc-favicon.png" type="image/x-icon"/>
     <link rel="stylesheet"
@@ -21,32 +21,29 @@
   <body>
     <div class="container">
       <!-- Calculator Body -->
-      <div class="outer_body" name="calc">
+      <div class="outerBody">
         <!-- Display -->
         <div class="display">
           <input
             type="text"
             class="history"
-            placeholder=""
-            name="history"
-            id="history"
+            id="history" 
           />
           <input
             type="text"
             class="screen"
             maxlength="15"
             placeholder="0"
-            name="screen"
             id="screen"
           />
         </div>
         <!-- Deg & E-F -->
-        <div class="top-row">
-          <button id="deg" class="top-row">DEG</button>
-          <button id="ef" class="top-row">F-E</button>
+        <div class="topRow">
+          <button id="deg">DEG</button>
+          <button id="fe">F-E</button>
         </div>
         <!-- Memory Functions -->
-        <div class="memory-func">
+        <div class="memoryFunctions">
           <button id="MC" disabled>MC</button>
           <button id="MR" disabled>MR</button>
           <button>M+</button>
@@ -57,88 +54,88 @@
         <div class="selection">
           <!-- Trigonometrics -->
           <div class="dropdown">
-            <div class="drop-btn">
+            <div class="dropBtn">
               <span>
-                <img src="./trigonometry.png" alt="trigo" width="17px" />
+                <img class="dropBtnImage" src="./trigonometry.png" alt="trigonometryImage" />
               </span>
               Trignometry
               <i class="fa fa-angle-down"></i>
             </div>
-            <div class="dropdown-content">
-              <div class="trigo">
-                <button id="second" onclick="trigo_second()">
+            <div class="dropdownContent">
+              <div class="trigonometryList">
+                <button id="trigonometryInverse" onclick="trigonometryInverse()">
                   2<sup>nd</sup>
                 </button>
-                <button id="hyp" onclick="trigo_hyp()">hyp</button>
+                <button id="trigonometryHyperbolic" onclick="trigonometryHyperbolic()">hyp</button>
                 <div></div>
-                <button id="trigo1">sin</button>
-                <button id="trigo2">cos</button>
-                <button id="trigo3">tan</button>
+                <button id="sin">sin</button>
+                <button id="cos">cos</button>
+                <button id="tan">tan</button>
               </div>
             </div>
           </div>
           <!--Functions-->
           <div class="dropdown">
-            <div class="drop-btn">
+            <div class="dropBtn">
               <span>
-                <img src="./function.png" alt="function" width="17px" />
+                <img class="dropBtnImage" src="./function.png" alt="functionImage" />
               </span>
               Function
               <i class="fa fa-angle-down"></i>
             </div>
-            <div class="dropdown-content func-drop">
-              <div class="function">
-                <button id="func1">floor</button>
-                <button id="func2">ceiling</button>
-                <button id="func3">round</button>
+            <div class="dropdownContent calcFunctionDropdown">
+              <div class="functionList">
+                <button>floor</button>
+                <button>ceiling</button>
+                <button>round</button>
               </div>
             </div>
           </div>
         </div>
         <!-- Operators & Operands -->
-        <div class="func-container">
+        <div class="calcFunctionContainer">
           <!-- row1 -->
-          <button id="2nd" onclick="change_func()">2<sup>nd</sup></button>
-          <button value="3.14">&pi;</button>
-          <button>e</button>
-          <button>C</button>
-          <button>⌫</button>
+          <button id="calcSecondBtn" onclick="calcSecondBtn()">2<sup>nd</sup></button>
+          <button>&pi;</button>
+          <button id="e">e</button>
+          <button id="clear">C</button>
+          <button id="backspace">⌫</button>
           <!-- row2 -->
           <button id="square">&#119909;<sup>2</sup></button>
           <button><sup>1</sup>/&#119909;</button>
           <button>|&#119909;|</button>
           <button>exp</button>
-          <button>mod</button>
+          <button id="mod">mod</button>
           <!-- row3 -->
           <button id="root">&radic;&#119909;</button>
-          <button>(</button>
-          <button>)</button>
-          <button>n!</button>
-          <button class="operator">&divide;</button>
+          <button id="openBracket">(</button>
+          <button id="closeBracket">)</button>
+          <button id="factorial">n!</button>
+          <button id="divide" class="operator">&divide;</button>
           <!-- row4 -->
           <button id="power">&#119909;<sup>y</sup></button>
-          <button class="operand">7</button>
-          <button class="operand">8</button>
-          <button class="operand">9</button>
-          <button class="operator">&#215;</button>
+          <button id="7" class="operand">7</button>
+          <button id="8" class="operand">8</button>
+          <button id="9" class="operand">9</button>
+          <button id="multiply" class="operator">&#215;</button>
           <!-- row5 -->
-          <button id="pow10">10<sup>&#119909;</sup></button>
-          <button class="operand">4</button>
-          <button class="operand">5</button>
-          <button class="operand">6</button>
-          <button class="operator">&ndash;</button>
+          <button id="power10">10<sup>&#119909;</sup></button>
+          <button id="4" class="operand">4</button>
+          <button id="5" class="operand">5</button>
+          <button id="6" class="operand">6</button>
+          <button id="subtraction" class="operator">&ndash;</button>
           <!-- row6 -->
           <button id="log">log</button>
-          <button class="operand">1</button>
-          <button class="operand">2</button>
-          <button class="operand">3</button>
-          <button class="operator">+</button>
+          <button id="1" class="operand">1</button>
+          <button id="2" class="operand">2</button>
+          <button id="3" class="operand">3</button>
+          <button id="addition" class="operator">+</button>
           <!-- row7 -->
           <button id="ln">ln</button>
           <button class="operand">&#xb1;</button>
-          <button class="operand">0</button>
-          <button class="operand">.</button>
-          <button class="equal">=</button>
+          <button id="0" class="operand">0</button>
+          <button id="." class="operand">.</button>
+          <button id="equal" class="equalBtn">=</button>
         </div>
       </div>
     </div>

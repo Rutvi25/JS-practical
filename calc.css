@@ -1,10 +1,10 @@
 :root {
-  --main_bg: #e8e8e8;
-  --operator_bg: #f0f0f0;
-  --operand_bg: #ffffff;
-  --operator_hover: #808080;
-  --operand_hover: #d3d3d3;
-  --function_change: #9ac2dd;
+  --mainBackground: #e8e8e8;
+  --operatorBackground: #f0f0f0;
+  --operandBackground: #ffffff;
+  --operatorHover: #808080;
+  --operandHover: #d3d3d3;
+  --functionChange: #9ac2dd;
 }
 * {
   font-family: Arial, Helvetica, sans-serif;
@@ -15,12 +15,12 @@
   display: flex;
   justify-content: center;
 }
-.outer_body {
+.outerBody {
   justify-content: center;
   max-width: 400px;
   display: flex;
   flex-direction: column;
-  background-color: var(--main_bg);
+  background-color: var(--mainBackground);
   padding: 5px;
   font-size: 14px;
   margin-top: 15px;
@@ -36,7 +36,7 @@
   font-size: 40px;
   font-weight: 500px;
   text-align: right;
-  background-color: var(--main_bg);
+  background-color: var(--mainBackground);
 }
 .display .history {
   border: none;
@@ -45,7 +45,7 @@
   font-weight: 500px;
   text-align: right;
   margin-bottom: 5px;
-  background-color: var(--main_bg);
+  background-color: var(--mainBackground);
   color: rgba(44, 43, 43, 0.981);
 }
 @media (max-width: 370px) {
@@ -64,31 +64,31 @@ button {
   transition-duration: 0.3s;
 }
 /* Deg & FE*/
-.top-row {
+.topRow {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
 }
-.top-row button {
+.topRow button {
   padding: 7px 12px;
-  width: 19.5%;
+  width: 20%;
   border: none;
   margin: 1px 1.5px 1px 0px;
   justify-content: center;
-  background-color: var(--main_bg);
+  background-color: var(--mainBackground);
 }
 /* Memory Functions*/
-.memory-func {
+.memoryFunctions {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 1px 0px;
 }
-.memory-func button {
-  width: 19.5%;
+.memoryFunctions button {
+  width: 20%;
   padding: 7px 12px;
   border: none;
-  background-color: var(--main_bg);
+  background-color: var(--mainBackground);
 }
 /* Dropdown for trigonometric & functions */
 .selection {
@@ -100,86 +100,88 @@ button {
 .selection button {
   padding: 7px 12px;
   border: none;
-  margin: 1px 1.6px 1px 0px;
-  background-color: var(--main_bg);
+  margin: 1px 1.5px 1px 0px;
+  background-color: var(--mainBackground);
 }
 .dropdown {
   position: relative;
   display: inline-block;
 }
-.drop-btn {
+.dropBtn {
   transition-duration: 0.3s;
   padding: 7px 12px;
   border: none;
   margin: 1px 1.6px 1px 0px;
-  background-color: var(--main_bg);
+  background-color: var(--mainBackground);
   cursor: pointer;
 }
-.drop-btn:hover {
-  background-color: var(--operator_hover);
+.dropBtn:hover {
+  background-color: var(--operatorHover);
 }
-.dropdown-content {
+.dropBtn .dropBtnImage {
+  width: 18px;
+}
+.dropdownContent {
   display: none;
   position: absolute;
-  background-color: var(--operator_bg);
+  background-color: var(--operatorBackground);
   min-width: 190px;
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
-.dropdown-content button {
+.dropdownContent button {
   padding: 7px 12px;
   text-decoration: none;
   display: block;
 }
-.dropdown-content .function,
-.trigo {
+.dropdownContent .functionList, .trigonometryList {
   display: grid;
   grid-template-columns: auto auto auto;
 }
-.dropdown-content button:hover {
-  background-color: var(--operator_hover);
+.dropdownContent button:hover {
+  background-color: var(--operatorHover);
 }
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdownContent {
   display: block;
 }
 @media (max-width: 350px) {
-  .func-drop {
+  .calcFunctionDropdown {
     right: 0;
   }
 }
 /* Function-container  */
-.func-container {
+.calcFunctionContainer {
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
-  background-color: var(--main_bg);
+  background-color: var(--mainBackground);
 }
-.func-container button {
+.calcFunctionContainer button {
   padding: 7px 12px;
   height: 40px;
   margin: 1px;
   border: none;
-  background-color: var(--operator_bg);
+  background-color: var(--operatorBackground);
 }
-.func-container .operand {
-  background-color: var(--operand_bg);
-  font-size: 17px;
+.calcFunctionContainer .operand {
+  background-color: var(--operandBackground);
+  font-size: 16px;
   font-weight: bold;
 }
-.func-container .operand:hover {
-  background-color: var(--operand_hover);
+.calcFunctionContainer .operand:hover {
+  background-color: var(--operandHover);
 }
-.func-container .operator {
+.calcFunctionContainer .operator {
   font-size: 20px;
-  padding: 5px 12px 5px 12px;
+  padding: 7px 12px;
 }
-.func-container .equal {
+.calcFunctionContainer .equalBtn {
   background-color: rgb(154, 194, 221);
 }
-.func-container .equal:hover {
+.calcFunctionContainer .equalBtn:hover {
   background-color: rgb(98, 165, 209);
   font-weight: bolder;
 }
 /* button hover style*/
 button:hover {
-  background-color: var(--operator_hover);
+  background-color: var(--operatorHover);
 }
