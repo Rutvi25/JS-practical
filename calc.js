@@ -6,7 +6,8 @@ let feFlag = true;
 // Column-1 function change on pressing the "2nd" button.
 function calcSecondBtn() {
   if (calcSecondFlag) {
-    document.getElementById("calcSecondBtn").style.backgroundColor = "var(--functionChange)";
+    document.getElementById("calcSecondBtn").style.backgroundColor = 
+      "var(--functionChangeBtnsBackground)";
     document.getElementById("square").innerHTML = "&#119909;<sup>3</sup>";
     document.getElementById("root").innerHTML = "&#8731;&#119909;";
     document.getElementById("power").innerHTML = "<sup>y</sup>&radic;&#119909;";
@@ -15,7 +16,8 @@ function calcSecondBtn() {
     document.getElementById("ln").innerHTML = "e<sup>&#119909;</sup>";
     calcSecondFlag = !calcSecondFlag;
   } else {
-    document.getElementById("calcSecondBtn").style.backgroundColor = "var(--operatorBackground)";
+    document.getElementById("calcSecondBtn").style.backgroundColor =
+      "var(--operatorBackground)";
     document.getElementById("square").innerHTML = "&#119909;<sup>2</sup>";
     document.getElementById("root").innerHTML = "&radic;&#119909;";
     document.getElementById("power").innerHTML = "&#119909;<sup>y</sup>";
@@ -28,7 +30,8 @@ function calcSecondBtn() {
 // For 2nd button under trigonomatry functions
 function trigonometryInverse() {
   if (trigonometryInverseFlag) {
-    document.getElementById("trigonometryInverse").style.backgroundColor = "var(--functionChange)";
+    document.getElementById("trigonometryInverse").style.backgroundColor = 
+      "var(--functionChangeBtnsBackground)";
     if (trigonometryHyperbolicFlag) {
       document.getElementById("sin").innerHTML = "sin<sup>-1</sup>";
       document.getElementById("cos").innerHTML = "cos<sup>-1</sup>";
@@ -41,7 +44,8 @@ function trigonometryInverse() {
       trigonometryInverseFlag = !trigonometryInverseFlag;
     }
   } else {
-    document.getElementById("trigonometryInverse").style.backgroundColor = "var(--mainBackground)";
+    document.getElementById("trigonometryInverse").style.backgroundColor = 
+      "var(--mainBackground)";
     if (trigonometryHyperbolicFlag) {
       document.getElementById("sin").innerHTML = "sin";
       document.getElementById("cos").innerHTML = "cos";
@@ -58,7 +62,8 @@ function trigonometryInverse() {
 // For hyp button under trigonomatry functions
 function trigonometryHyperbolic() {
   if (trigonometryHyperbolicFlag) {
-    document.getElementById("trigonometryHyperbolic").style.backgroundColor = "var(--functionChange)";
+    document.getElementById("trigonometryHyperbolic").style.backgroundColor = 
+      "var(--functionChangeBtnsBackground)";
     if (trigonometryInverseFlag) {
       document.getElementById("sin").innerHTML = "sinh";
       document.getElementById("cos").innerHTML = "cosh";
@@ -71,7 +76,8 @@ function trigonometryHyperbolic() {
       trigonometryHyperbolicFlag = !trigonometryHyperbolicFlag;
     }
   } else {
-    document.getElementById("trigonometryHyperbolic").style.backgroundColor = "var(--mainBackground)";
+    document.getElementById("trigonometryHyperbolic").style.backgroundColor = 
+      "var(--mainBackground)";
     if (trigonometryInverseFlag) {
       document.getElementById("sin").innerHTML = "sin";
       document.getElementById("cos").innerHTML = "cos";
@@ -210,7 +216,7 @@ function nthRoot(redicant, index) {
   }
   return redicant ** (1 / index)
 }
-// Input using the keyboard
+// To take the input using the keyboard
 document.onkeyup = function(event){
   switch (event.key) {
     case "Backspace":
@@ -510,7 +516,7 @@ buttons.map(button => {
         break;      
       // Logarithm
       case "exp":
-        var num = evaluate(screen.value);
+        let num = evaluate(screen.value);
         screen.value = num.toExponential(10);
         break;
       case "log":
@@ -552,10 +558,12 @@ buttons.map(button => {
       // Choice for the mode of calc
       case "F-E":
         if (feFlag) {
-          document.getElementById("fe").style.background = "var(--functionChange)";
+          document.getElementById("fe").style.background = 
+            "var(--functionChangeBtnsBackground)";
           feFlag = !feFlag;
         } else {
-          document.getElementById("fe").style.background = "var(--mainBackground)";
+          document.getElementById("fe").style.background = 
+            "var(--mainBackground)";
           feFlag = !feFlag;
         }
         break;
