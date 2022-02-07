@@ -21,7 +21,7 @@
   <body>
     <div class="container">
       <!-- Calculator Body -->
-      <div class="outerBody">
+      <div class="outer-body">
         <!-- Display -->
         <div class="display">
           <input
@@ -38,12 +38,12 @@
           />
         </div>
         <!-- Deg & E-F -->
-        <div class="topRow">
+        <div class="top-row">
           <button id="deg">DEG</button>
           <button id="fe">F-E</button>
         </div>
         <!-- Memory Functions -->
-        <div class="memoryFunctions">
+        <div class="memory-functions">
           <button id="MC" disabled>MC</button>
           <button id="MR" disabled>MR</button>
           <button>M+</button>
@@ -54,19 +54,19 @@
         <div class="selection">
           <!-- Trigonometrics -->
           <div class="dropdown">
-            <div class="dropBtn">
+            <div class="drop-btn">
               <span>
-                <img class="dropBtnImage" src="./trigonometry.png" alt="trigonometryImage" />
+                <img class="drop-btn-image" src="./trigonometry.png" alt="trigonometry-image" />
               </span>
               Trignometry
               <i class="fa fa-angle-down"></i>
             </div>
-            <div class="dropdownContent">
-              <div class="trigonometryList">
-                <button id="trigonometryInverse" onclick="trigonometryInverse()">
+            <div class="dropdown-content">
+              <div class="trigonometry-list">
+                <button id="trigonometryInverse" onclick="handleTrigonometryInverse()">
                   2<sup>nd</sup>
                 </button>
-                <button id="trigonometryHyperbolic" onclick="trigonometryHyperbolic()">hyp</button>
+                <button id="trigonometryHyperbolic" onclick="handleTrigonometryHyperbolic()">hyp</button>
                 <div></div>
                 <button id="sin">sin</button>
                 <button id="cos">cos</button>
@@ -76,15 +76,15 @@
           </div>
           <!--Functions-->
           <div class="dropdown">
-            <div class="dropBtn">
+            <div class="drop-btn">
               <span>
-                <img class="dropBtnImage" src="./function.png" alt="functionImage" />
+                <img class="drop-btn-image" src="./function.png" alt="function-image" />
               </span>
               Function
               <i class="fa fa-angle-down"></i>
             </div>
-            <div class="dropdownContent calcFunctionDropdown">
-              <div class="functionList">
+            <div class="dropdown-content calc-function-dropdown">
+              <div class="function-list">
                 <button>floor</button>
                 <button>ceiling</button>
                 <button>round</button>
@@ -93,9 +93,9 @@
           </div>
         </div>
         <!-- Operators & Operands -->
-        <div class="calcFunctionContainer">
+        <div class="calc-function-container">
           <!-- row1 -->
-          <button id="calcSecondBtn" onclick="calcSecondBtn()">2<sup>nd</sup></button>
+          <button id="calcSecondBtn" onclick="handleCalcSecondBtn()">2<sup>nd</sup></button>
           <button>&pi;</button>
           <button id="e">e</button>
           <button id="clear">C</button>

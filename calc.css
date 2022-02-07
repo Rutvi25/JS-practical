@@ -1,10 +1,10 @@
 :root {
-  --mainBackground: #e8e8e8;
-  --operatorBackground: #f0f0f0;
-  --operandBackground: #ffffff;
-  --operatorHover: #808080;
-  --operandHover: #d3d3d3;
-  --functionChangeBtnsBackground: #9ac2dd;
+  --main-background: #e8e8e8;
+  --operator-background: #f0f0f0;
+  --operand-background: #ffffff;
+  --operator-hover: #808080;
+  --operand-hover: #d3d3d3;
+  --function-change-btns-background: #9ac2dd;
 }
 * {
   font-family: Arial, Helvetica, sans-serif;
@@ -15,12 +15,12 @@
   display: flex;
   justify-content: center;
 }
-.outerBody {
+.outer-body {
   justify-content: center;
   max-width: 400px;
   display: flex;
   flex-direction: column;
-  background-color: var(--mainBackground);
+  background-color: var(--main-background);
   padding: 5px;
   font-size: 14px;
   margin-top: 15px;
@@ -36,7 +36,7 @@
   font-size: 40px;
   font-weight: 500px;
   text-align: right;
-  background-color: var(--mainBackground);
+  background-color: var(--main-background);
 }
 .display .history {
   border: none;
@@ -45,7 +45,7 @@
   font-weight: 500px;
   text-align: right;
   margin-bottom: 5px;
-  background-color: var(--mainBackground);
+  background-color: var(--main-background);
   color: rgba(44, 43, 43, 0.981);
 }
 @media (max-width: 370px) {
@@ -64,31 +64,31 @@ button {
   transition-duration: 0.3s;
 }
 /* Deg & FE*/
-.topRow {
+.top-row {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
 }
-.topRow button {
+.top-row button {
   padding: 7px 12px;
   width: 20%;
   border: none;
   margin: 1px 1.5px 1px 0px;
   justify-content: center;
-  background-color: var(--mainBackground);
+  background-color: var(--main-background);
 }
 /* Memory Functions*/
-.memoryFunctions {
+.memory-functions {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 1px 0px;
 }
-.memoryFunctions button {
+.memory-functions button {
   width: 20%;
   padding: 7px 12px;
   border: none;
-  background-color: var(--mainBackground);
+  background-color: var(--main-background);
 }
 /* Dropdown for trigonometric & functions */
 .selection {
@@ -101,87 +101,87 @@ button {
   padding: 7px 12px;
   border: none;
   margin: 1px 1.5px 1px 0px;
-  background-color: var(--mainBackground);
+  background-color: var(--main-background);
 }
 .dropdown {
   position: relative;
   display: inline-block;
 }
-.dropBtn {
+.drop-btn {
   transition-duration: 0.3s;
   padding: 7px 12px;
   border: none;
   margin: 1px 1.6px 1px 0px;
-  background-color: var(--mainBackground);
+  background-color: var(--main-background);
   cursor: pointer;
 }
-.dropBtn:hover {
-  background-color: var(--operatorHover);
+.drop-btn:hover {
+  background-color: var(--operator-hover);
 }
-.dropBtn .dropBtnImage {
+.drop-btn .drop-btn-image {
   width: 18px;
 }
-.dropdownContent {
+.dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--operatorBackground);
+  background-color: var(--operand-background);
   min-width: 190px;
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
-.dropdownContent button {
+.dropdown-content button {
   padding: 7px 12px;
   text-decoration: none;
   display: block;
 }
-.dropdownContent .functionList, .trigonometryList {
+.dropdown-content .function-list, .trigonometry-list {
   display: grid;
   grid-template-columns: auto auto auto;
 }
-.dropdownContent button:hover {
-  background-color: var(--operatorHover);
+.dropdown-content button:hover {
+  background-color: var(--operator-hover);
 }
-.dropdown:hover .dropdownContent {
+.dropdown:hover .dropdown-content {
   display: block;
 }
 @media (max-width: 350px) {
-  .calcFunctionDropdown {
+  .calc-function-dropdown {
     right: 0;
   }
 }
 /* Function-container  */
-.calcFunctionContainer {
+.calc-function-container {
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
-  background-color: var(--mainBackground);
+  background-color: var(--main-background);
 }
-.calcFunctionContainer button {
+.calc-function-container button {
   padding: 7px 12px;
   height: 40px;
   margin: 1px;
   border: none;
-  background-color: var(--operatorBackground);
+  background-color: var(--operator-background);
 }
-.calcFunctionContainer .operand {
-  background-color: var(--operandBackground);
+.calc-function-container .operand {
+  background-color: var(--operand-background);
   font-size: 16px;
   font-weight: bold;
 }
-.calcFunctionContainer .operand:hover {
-  background-color: var(--operandHover);
+.calc-function-container .operand:hover {
+  background-color: var(--operand-hover);
 }
-.calcFunctionContainer .operator {
+.calc-function-container .operator {
   font-size: 20px;
   padding: 7px 12px;
 }
-.calcFunctionContainer .equalBtn {
+.calc-function-container .equal-btn {
   background-color: rgb(154, 194, 221);
 }
-.calcFunctionContainer .equalBtn:hover {
+.calc-function-container .equal-btn:hover {
   background-color: rgb(98, 165, 209);
   font-weight: bolder;
 }
 /* button hover style*/
 button:hover {
-  background-color: var(--operatorHover);
+  background-color: var(--operator-hover);
 }

@@ -4,10 +4,10 @@ let trigonometryInverseFlag = true;
 let trigonometryHyperbolicFlag = true;
 let feFlag = true;
 // Column-1 function change on pressing the "2nd" button.
-function calcSecondBtn() {
+function handleCalcSecondBtn() {
   if (calcSecondFlag) {
     document.getElementById("calcSecondBtn").style.backgroundColor = 
-      "var(--functionChangeBtnsBackground)";
+      "var(--function-change-btns-background)";
     document.getElementById("square").innerHTML = "&#119909;<sup>3</sup>";
     document.getElementById("root").innerHTML = "&#8731;&#119909;";
     document.getElementById("power").innerHTML = "<sup>y</sup>&radic;&#119909;";
@@ -17,7 +17,7 @@ function calcSecondBtn() {
     calcSecondFlag = !calcSecondFlag;
   } else {
     document.getElementById("calcSecondBtn").style.backgroundColor =
-      "var(--operatorBackground)";
+      "var(--operator-background)";
     document.getElementById("square").innerHTML = "&#119909;<sup>2</sup>";
     document.getElementById("root").innerHTML = "&radic;&#119909;";
     document.getElementById("power").innerHTML = "&#119909;<sup>y</sup>";
@@ -28,10 +28,10 @@ function calcSecondBtn() {
   }
 }
 // For 2nd button under trigonomatry functions
-function trigonometryInverse() {
+function handleTrigonometryInverse() {
   if (trigonometryInverseFlag) {
     document.getElementById("trigonometryInverse").style.backgroundColor = 
-      "var(--functionChangeBtnsBackground)";
+      "var(--function-change-btns-background)";
     if (trigonometryHyperbolicFlag) {
       document.getElementById("sin").innerHTML = "sin<sup>-1</sup>";
       document.getElementById("cos").innerHTML = "cos<sup>-1</sup>";
@@ -45,7 +45,7 @@ function trigonometryInverse() {
     }
   } else {
     document.getElementById("trigonometryInverse").style.backgroundColor = 
-      "var(--mainBackground)";
+      "var(--main-background)";
     if (trigonometryHyperbolicFlag) {
       document.getElementById("sin").innerHTML = "sin";
       document.getElementById("cos").innerHTML = "cos";
@@ -60,10 +60,10 @@ function trigonometryInverse() {
   }
 }
 // For hyp button under trigonomatry functions
-function trigonometryHyperbolic() {
+function handleTrigonometryHyperbolic() {
   if (trigonometryHyperbolicFlag) {
     document.getElementById("trigonometryHyperbolic").style.backgroundColor = 
-      "var(--functionChangeBtnsBackground)";
+      "var(--function-change-btns-background)";
     if (trigonometryInverseFlag) {
       document.getElementById("sin").innerHTML = "sinh";
       document.getElementById("cos").innerHTML = "cosh";
@@ -77,7 +77,7 @@ function trigonometryHyperbolic() {
     }
   } else {
     document.getElementById("trigonometryHyperbolic").style.backgroundColor = 
-      "var(--mainBackground)";
+      "var(--main-background)";
     if (trigonometryInverseFlag) {
       document.getElementById("sin").innerHTML = "sin";
       document.getElementById("cos").innerHTML = "cos";
@@ -559,11 +559,11 @@ buttons.map(button => {
       case "F-E":
         if (feFlag) {
           document.getElementById("fe").style.background = 
-            "var(--functionChangeBtnsBackground)";
+            "var(--function-change-btns-background)";
           feFlag = !feFlag;
         } else {
           document.getElementById("fe").style.background = 
-            "var(--mainBackground)";
+            "var(--main-background)";
           feFlag = !feFlag;
         }
         break;
